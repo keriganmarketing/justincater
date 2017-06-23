@@ -1,0 +1,130 @@
+<?php
+/*
+ * Register sidebars
+ */
+function register_ai_child_starter_theme_sidebars() {
+	
+	register_sidebar(array( 
+		'name' => 'Header Left',
+		'id'=>'header-logo',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+	));
+	register_sidebar(array(
+		'name' => 'Header Contact',
+		'id'=>'header-contact',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+	));	
+	register_sidebar(array(
+		'name' => 'HP Slideshow',
+		'id'=>'hp-slideshow',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+	));	
+	register_sidebar(array(
+		'name' => 'HP CTA',
+		'id'=>'hp-cta',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		));		
+	register_sidebar(array(
+		'name' => 'Property CTA',
+		'id'=>'property-cta',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		));	
+	register_sidebar(array(
+		'name' => 'HP Quick Search',
+		'id'=>'quick-search',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		));
+	register_sidebar(array(
+		'name' => 'HP Welcome',
+		'id'=>'hp-welcome',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		));	
+	register_sidebar(array(
+		'name' => 'HP Featured Properties',
+		'id'=>'hp-properties',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		));	
+	register_sidebar(array(
+		'name' => 'HP Testimonials',
+		'id'=>'hp-testimonials',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		));	
+	register_sidebar(array(
+		'name' => 'Footer Contact',
+		'id'=>'footer-contact',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		));					
+	register_sidebar(array(
+		'name' => 'Footer Logos',
+		'id'=>'footer-logos',
+		'before_widget' => '',
+		'after_widget' => '',
+		'before_title' => '',
+		'after_title' => ''
+		));			
+			
+
+
+}
+
+add_action( 'widgets_init', 'register_ai_child_starter_theme_sidebars', 11 );
+
+/*
+ * Enqueue theme styles and scripts
+ */
+function ai_starter_theme_enqueue_child_assets() {
+	
+	/* Enqueue my scripts */
+	wp_enqueue_script('slick', get_bloginfo('stylesheet_directory')."/js/slick.min.js");
+	wp_enqueue_script('aios-nav-double-tap', 'http://cdn.thedesignpeople.net/agentimage-libraries/jquery.nav-tab-double-tap.js');
+	wp_enqueue_script('jquery-anchor-single-tap', get_stylesheet_directory_uri() . '/js/jquery.anchor-single-tap.js');
+	wp_enqueue_script('aios-starter-theme-child-script', get_stylesheet_directory_uri(). '/js/scripts.js');
+	
+}
+	/* Enqueue my style */
+	wp_enqueue_style('slick-css', get_bloginfo('stylesheet_directory')."/js/slick.css");
+	wp_enqueue_style('Fonts','https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,900,900i');
+	add_action( 'wp_enqueue_scripts', 'ai_starter_theme_enqueue_child_assets', 11 );
+	add_action( 'wp_enqueue_scripts', 'ai_starter_theme_remove_media_queries_from_child_stylesheet', 13 );
+
+/*
+ * Add image sizes
+ */
+//add_image_size('cyclone-slide', 1024, 768, true);
+ 
+/*
+ * Define content width
+ */
+if ( ! isset( $content_width ) ) {
+	$content_width = 960;
+}

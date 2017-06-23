@@ -1,0 +1,45 @@
+1. Install https://wordpress.org/plugins/cyclone-slider-2/.
+
+2. Create a folder named 'cycloneslider' in your theme.
+
+3. Copy \\tami\Prodmaterials2\Cyclone Slider\Cyclone Slider 2\seamless to the 'cycloneslider' folder.
+
+4. Adjust slider.php.
+
+    Line 91: Change 1132 to your site's minimum width
+
+    Line 92: Change 1600 to the actual width of your slideshow image
+
+    Line 93: Change 758 to the actual height of your slideshow image
+
+    Lines 94: Add the classes and ids of your slideshow's parent containers
+
+5. Adjust functions.php.
+
+    Line 214: 
+
+        Change 1024 to the actual width of your slideshow image
+
+        Change 767 to the actual height of your slideshow image
+		
+		For item #5, please copy the code on line 214 from \\Tami\tdpdc01\Departments\FEWD\FEWD Resources\Starter Theme\functions.php.
+		
+		//
+		
+		// Add image sizes
+		add_image_size('cyclone-slide', 1024, 768, true);
+		
+		
+
+6. On WP Admin, create a new slideshow via Cyclone Slider->Add slideshow.
+
+7. Upload your images and set the slideshow properties.
+
+8. Change the slideshow template to 'Seamless'.
+
+9. Use 'do_shortcode' to embed the slideshow in home.php.
+
+	<?php echo do_shortcode('[cycloneslider id="slideshow"]') ?>
+	
+
+	

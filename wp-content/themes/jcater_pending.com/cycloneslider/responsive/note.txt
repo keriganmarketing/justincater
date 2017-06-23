@@ -1,0 +1,15 @@
+
+1
+down vote
+If you want to keep the image ratio, I would set max-height and max-width to 100%. Here's a sample to show how that works. That will effectively shrink images that are larger than the div, but it will keep the aspect ratio.
+
+For images that are smaller than the div, you will have to scale up with JavaScript. The basic algorithm is like so:
+
+Find the aspect ratio of the image (width / height)
+Find the aspect ratio of the div (width / height)
+If the image's aspect ratio is less than the div's, set the image's height to 100%
+If the image's aspect ratio is greater than the div's, set the image's width to 100%
+Whichever dimension is not set, set it to auto
+Obviously, you could use this algorithm for scaling up or down, but if you can be guaranteed that your div will always be smaller than your image, you can use the simpler CSS solution.
+
+It looks like you've got code to do centering, so I'll leave that to you.

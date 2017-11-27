@@ -5,7 +5,7 @@
  */
 interface iHomefinderConstants {
 
-	const VERSION = "3.7.1";
+	const VERSION = "4.0.2";
 	const VERSION_NAME = "Optima Express";
 	const LEGACY_EXTERNAL_URL = "www.idxre.com/services/wordpress";
 	const RESPONSIVE_EXTERNAL_URL = "www.idxhome.com/service/wordpress";
@@ -16,6 +16,7 @@ interface iHomefinderConstants {
 	 * menu slugs
 	 */
 	const PAGE_INFORMATION = "ihf-information";
+	const PAGE_SHORTCODES = "ihf-shortcodes";
 	const PAGE_ACTIVATE = "ihf-option-activate";
 	const PAGE_IDX_CONTROL_PANEL = "ihf-idx-control-panel";
 	const PAGE_IDX_PAGES = "ihf-option-pages";
@@ -164,6 +165,55 @@ interface iHomefinderConstants {
 	const OPTION_VIRTUAL_PAGE_TEMPLATE_AGENT_DETAIL = "ihf-virtual-page-template-agent-detail";
 	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_AGENT_DETAIL = "ihf-virtual-page-permalink-text-agent-detail";
 	const OPTION_VIRTUAL_PAGE_META_TAGS_AGENT_DETAIL = "ihf-virtual-page-meta-tags-agent-detail";
+	
+	// MLS Portal - Office Search Virtual Page Options
+	const OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_SEARCH = "ihf-virtual-page-title-mls-portal-board-office-search";
+	const OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_SEARCH = "ihf-virtual-page-template-mls-portal-board-office-search";
+	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_SEARCH = "ihf-virtual-page-permalink-text-mls-portal-board-office-search";
+	const OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_SEARCH = "ihf-virtual-page-meta-tags-mls-portal-board-office-search";
+	
+	// MLS Portal - Office List Virtual Page Options
+	const OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_LIST = "ihf-virtual-page-title-mls-portal-board-office-list";
+	const OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_LIST = "ihf-virtual-page-template-mls-portal-board-office-list";
+	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_LIST = "ihf-virtual-page-permalink-text-mls-portal-board-office-list";
+	const OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_LIST = "ihf-virtual-page-meta-tags-mls-portal-board-office-list";
+	
+	// MLS Portal - Office List Alpha Virtual Page Options
+	const OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH = "ihf-virtual-page-title-mls-portal-board-office-list-name-starts-with";
+	const OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH = "ihf-virtual-page-template-mls-portal-board-office-list-name-starts-with";
+	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH = "ihf-virtual-page-permalink-text-mls-portal-board-office-list-name-starts-with";
+	const OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH = "ihf-virtual-page-meta-tags-mls-portal-board-office-list-name-starts-with";
+	
+	// MLS Portal - Listing Office Detail Virtual Page Options
+	const OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_DETAIL = "ihf-virtual-page-title-mls-portal-board-office-detail";
+	const OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_DETAIL = "ihf-virtual-page-template-mls-portal-board-office-detail";
+	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_DETAIL = "ihf-virtual-page-permalink-text-mls-portal-board-office-detail";
+	const OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_DETAIL = "ihf-virtual-page-meta-tags-mls-portal-board-office-detail";
+	
+	// MLS Portal - Agent Search Virtual Page Options
+	const OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_SEARCH = "ihf-virtual-page-title-mls-portal-board-member-search";
+	const OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_SEARCH = "ihf-virtual-page-template-mls-portal-board-member-search";
+	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_SEARCH = "ihf-virtual-page-permalink-text-mls-portal-board-member-search";
+	const OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_SEARCH = "ihf-virtual-page-meta-tags-mls-portal-board-member-search";
+	
+	// MLS Portal - Agent List Virtual Page Options
+	const OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_LIST = "ihf-virtual-page-title-mls-portal-board-member-list";
+	const OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_LIST = "ihf-virtual-page-template-mls-portal-board-member-list";
+	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_LIST = "ihf-virtual-page-permalink-text-mls-portal-board-member-list";
+	const OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_LIST = "ihf-virtual-page-meta-tags-mls-portal-board-member-list";
+	
+	// MLS Portal - Agent List Alpha Virtual Page Options
+	const OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH = "ihf-virtual-page-title-mls-portal-board-member-list-last-name-starts-with";
+	const OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH = "ihf-virtual-page-template-mls-portal-board-member-list-last-name-starts-with";
+	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH = "ihf-virtual-page-permalink-text-mls-portal-board-member-list-last-name-starts-with";
+	const OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH = "ihf-virtual-page-meta-tags-mls-portal-board-member-list-last-name-starts-with";
+	
+	// MLS Portal - Agent Detail Virtual Page Options
+	const OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_DETAIL = "ihf-virtual-page-title-mls-portal-board-member-detail";
+	const OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_DETAIL = "ihf-virtual-page-template-mls-portal-board-member-detail";
+	const OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_DETAIL = "ihf-virtual-page-permalink-text-mls-portal-board-member-detail";
+	const OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_DETAIL = "ihf-virtual-page-meta-tags-mls-portal-board-member-detail";
+	
 	
 	/*
 	 * configuration options

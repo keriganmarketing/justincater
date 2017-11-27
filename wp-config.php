@@ -19,26 +19,29 @@
  */
 
 // ** MySQL settings - You can get this info from your web host ** //
-/** The name of the database for WordPress */
-define('DB_NAME', 'justinca_dev');
-
-/** MySQL database username */
-define('DB_USER', 'justinca_usr');
-
-/** MySQL database password */
-define('DB_PASSWORD', '[.DZrfhkaL?9gJ}#7X');
-
-/** MySQL hostname */
-define('DB_HOST', '216.119.142.71');
+///** The name of the database for WordPress */
+//define('DB_NAME', 'justinca_dev');
 
 ///** MySQL database username */
-//define('DB_USER', 'justincater');
-
+//define('DB_USER', 'justinca_usr');
+//
 ///** MySQL database password */
-//define('DB_PASSWORD', 'LODsi3NVHkbwNuyB');
-
+//define('DB_PASSWORD', '[.DZrfhkaL?9gJ}#7X');
+//
 ///** MySQL hostname */
-//define('DB_HOST', 'localhost');
+//define('DB_HOST', '216.119.142.71');
+
+/** The name of the database for WordPress */
+define('DB_NAME', 'dev_justincater');
+
+/** MySQL database username */
+define('DB_USER', 'justincater');
+
+/** MySQL database password */
+define('DB_PASSWORD', 'LODsi3NVHkbwNuyB');
+
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
 
 
 /** Database Charset to use in creating database tables. */

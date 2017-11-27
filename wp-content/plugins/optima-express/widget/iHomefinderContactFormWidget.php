@@ -76,4 +76,17 @@ class iHomefinderContactFormWidget extends iHomefinderWidget {
 		<br />
 		<?php
 	}
+	
+	protected function isEnabled($instance) {
+		$result = parent::isEnabled($instance);
+		$virtualPageType = get_query_var(iHomefinderConstants::IHF_TYPE_URL_VAR);
+		switch($virtualPageType) {
+			case iHomefinderVirtualPageFactory::CONTACT_FORM:
+				$result = false;
+				break;
+		}
+		return $result;
+	}
+	
+	
 }

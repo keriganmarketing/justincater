@@ -1,0 +1,11 @@
+sourcefiles/
+.idea/
+.DS_Store
+wp-config.php
+tags
+.user.ini
+php.ini
+*error_log
+*/cache/
+wp-content/themes/jcater_pending.com/node_modules/
+wp-content/themes/jcater_pending.com/vendor/

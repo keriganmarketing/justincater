@@ -6,6 +6,7 @@ class iHomefinderStateManager {
 	const SESSION_ID = "ihf_session_id";
 	const LAST_SEARCH_URL = "ihf_last_search_url";
 	const SEARCH_SUMMARY = "ihf_search_summary";
+	const ERROR_MODE_TIMES = "ihf_error_mode_times";
 	
 	//stored as cookie
 	const SUBSCRIBER_ID = "ihf_subscriber_id";
@@ -13,6 +14,8 @@ class iHomefinderStateManager {
 	const LEAD_CAPTURE_USER_ID = "ihf_lead_capture_user_id";
 	
 	const COOKIE_TIMEOUT = 157680000; // 5 years
+	const ERROR_MODE_TIMEOUT = 300; // 5 min
+	const ERROR_MODE_ATTEMPTS = 3;
 	
 	private static $instance;
 	private $listingInfo;
@@ -239,7 +242,60 @@ class iHomefinderStateManager {
 			return $_COOKIE[$name];
 		}
 	}
+
+	public function isErrorForTimeout($responseCode) {
+		$result = false;
+		$errors = array(
+			503,
+		);
+		foreach($errors as $error) {
+			if($responseCode === $error) {
+				$result = true;
+				break;
+			}
+		}
+		return $result;
+	}
 	
+	public function getErrorsTimes() {
+		return $this->getSession(self::ERROR_MODE_TIMES);
+	}
+
+	private function setErrorTimes($errorsTimes) {
+		$errorsTimes = $this->limitErrorsTimes($errorsTimes);
+		$this->setSession(self::ERROR_MODE_TIMES, $errorsTimes);
+	}
+	
+	private function limitErrorsTimes($errorsTimes) {
+		while(count($errorsTimes) > self::ERROR_MODE_ATTEMPTS) {
+			array_shift($errorsTimes);
+		}
+		return $errorsTimes;
+	}
+	
+	public function addErrorTime() {
+		$errorsTimes = $this->getErrorsTimes();
+		$errorsTimes[] = time();
+		$this->setErrorTimes($errorsTimes);
+	}
+		
+	public function isErrorMode() {
+		$result = false;
+		$errorTimes = $this->getErrorsTimes();
+		if(count($errorTimes) >= self::ERROR_MODE_ATTEMPTS) {
+			$errorTimeDifference = end($errorTimes) - reset($errorTimes);
+			//if the errors occur within a given time, enter into error mode
+			if($errorTimeDifference < self::ERROR_MODE_TIMEOUT) {
+				$result = true;
+			}
+			//if the last error happened more than a given time from the current time, remove error mode
+			if(time() - end($errorTimes) > self::ERROR_MODE_TIMEOUT) {
+				$result = false;				
+			}			
+		}
+		return $result;
+	}
+
 	private function setCookie($name, $value) {
 		$_COOKIE[$name] = $value;
 		$expireTime = time() + self::COOKIE_TIMEOUT;
@@ -271,5 +327,20 @@ class iHomefinderStateManager {
 		$expireTime = time() - 3600;
 		setcookie($name, null, $expireTime, "/");
 	}
+	
+	public function setupLeadCaptureUser() {
+		if(!$this->isWebCrawler()) {
+			$leadSource = iHomefinderUtility::getInstance()->getRequestVar("leadSource");
+			if(!$this->hasLeadCaptureUserId() || $leadSource != null){
+				$remoteRequest = new iHomefinderRequestor();
+				$remoteRequest
+				->addParameter("requestType", "initialize-lead-capture-user")
+				->addParameters($_REQUEST)
+				;
+				$remoteResponse = $remoteRequest->remoteGetRequest();
+			}			
+		}
+	}
+
 	
 }

@@ -811,20 +811,20 @@ class CycloneSlider_Data {
     public function get_resize_options(){
         if(version_compare(PHP_VERSION, '5.3', '>=')) { // 5.3+
             return array(
-                'fit'      => 'Fit',
-                'fill'     => 'Fill',
-                'crop'     => 'Crop',
-                'exact'      => 'Exact',
-                'exactWidth' => 'Exact Width',
-                'exactHeight'  => 'Exact Height'
+                'fit'      => __('Fit', 'cycloneslider'),
+                'fill'     => __('Fill', 'cycloneslider'),
+                'crop'     => __('Crop', 'cycloneslider'),
+                'exact'      => __('Exact', 'cycloneslider'),
+                'exactWidth' => __('Exact Width', 'cycloneslider'),
+                'exactHeight'  => __('Exact Height', 'cycloneslider')
             );
         } else { // 5.2
             return array(
-                'auto'      => 'Auto',
-                'crop'      => 'Crop',
-                'exact'     => 'Exact',
-                'landscape' => 'Landscape',
-                'portrait'  => 'Portrait'
+                'auto'      => __('Auto', 'cycloneslider'),
+                'crop'      => __('Crop', 'cycloneslider'),
+                'exact'     => __('Exact', 'cycloneslider'),
+                'landscape' => __('Landscape', 'cycloneslider'),
+                'portrait'  => __('Portrait', 'cycloneslider')
             );
         }
     }
@@ -836,12 +836,12 @@ class CycloneSlider_Data {
     */
     public function get_slide_effects(){
         return array(
-            'fade'=>'Fade',
-            'fadeout'=>'Fade Out',
-            'none'=>'None',
-            'scrollHorz'=>'Scroll Horizontally',
-            'tileBlind'=>'Tile Blind',
-            'tileSlide'=>'Tile Slide'
+            'fade'=>__('Fade', 'cycloneslider'),
+            'fadeout'=>__('Fade Out', 'cycloneslider'),
+            'none'=>__('None', 'cycloneslider'),
+            'scrollHorz'=>__('Scroll Horizontally', 'cycloneslider'),
+            'tileBlind'=>__('Tile Blind', 'cycloneslider'),
+            'tileSlide'=>__('Tile Slide', 'cycloneslider')
         );
     }
     
@@ -853,131 +853,131 @@ class CycloneSlider_Data {
     public function get_jquery_easing_options(){
         return array(
             array(
-                'text' => 'Default',
+                'text' => __('Default', 'cycloneslider'),
                 'value' => ''
             ),
             array(
-                'text' => 'Swing',
+                'text' => __('Swing', 'cycloneslider'),
                 'value' => 'swing'
             ),
             array(
-                'text' => 'Ease-In Quad',
+                'text' => __('Ease-In Quad', 'cycloneslider'),
                 'value' => 'easeInQuad'
             ),
             array(
-                'text' => 'Ease-Out Quad',
+                'text' => __('Ease-Out Quad', 'cycloneslider'),
                 'value' => 'easeOutQuad'
             ),
             array(
-                'text' => 'Ease-In OutQuad',
+                'text' => __('Ease-In OutQuad', 'cycloneslider'),
                 'value' => 'easeInOutQuad'
             ),
             array(
-                'text' => 'Ease-In Cubic',
+                'text' => __('Ease-In Cubic', 'cycloneslider'),
                 'value' => 'easeInCubic'
             ),
             array(
-                'text' => 'Ease-Out Cubic',
+                'text' => __('Ease-Out Cubic', 'cycloneslider'),
                 'value' => 'easeOutCubic'
             ),
             array(
-                'text' => 'Ease-In OutCubic',
+                'text' => __('Ease-In OutCubic', 'cycloneslider'),
                 'value' => 'easeInOutCubic'
             ),
             array(
-                'text' => 'Ease-In Quart',
+                'text' => __('Ease-In Quart', 'cycloneslider'),
                 'value' => 'easeInQuart'
             ),
             array(
-                'text' => 'Ease-Out Quart',
+                'text' => __('Ease-Out Quart', 'cycloneslider'),
                 'value' => 'easeOutQuart'
             ),
             array(
-                'text' => 'Ease-In OutQuart',
+                'text' => __('Ease-In OutQuart', 'cycloneslider'),
                 'value' => 'easeInOutQuart'
             ),
             array(
-                'text' => 'Ease-In Quint',
+                'text' => __('Ease-In Quint', 'cycloneslider'),
                 'value' => 'easeInQuint'
             ),
             array(
-                'text' => 'Ease-Out Quint',
+                'text' => __('Ease-Out Quint', 'cycloneslider'),
                 'value' => 'easeOutQuint'
             ),
             array(
-                'text' => 'Ease-In OutQuint',
+                'text' => __('Ease-In OutQuint', 'cycloneslider'),
                 'value' => 'easeInOutQuint'
             ),
             array(
-                'text' => 'Ease-In Sine',
+                'text' => __('Ease-In Sine', 'cycloneslider'),
                 'value' => 'easeInSine'
             ),
             array(
-                'text' => 'Ease-Out Sine',
+                'text' => __('Ease-Out Sine', 'cycloneslider'),
                 'value' => 'easeOutSine'
             ),
             array(
-                'text' => 'Ease-In OutSine',
+                'text' => __('Ease-In OutSine', 'cycloneslider'),
                 'value' => 'easeInOutSine'
             ),
             array(
-                'text' => 'Ease-In Expo',
+                'text' => __('Ease-In Expo', 'cycloneslider'),
                 'value' => 'easeInExpo'
             ),
             array(
-                'text' => 'Ease-Out Expo',
+                'text' => __('Ease-Out Expo', 'cycloneslider'),
                 'value' => 'easeOutExpo'
             ),
             array(
-                'text' => 'Ease-In OutExpo',
+                'text' => __('Ease-In OutExpo', 'cycloneslider'),
                 'value' => 'easeInOutExpo'
             ),
             array(
-                'text' => 'Ease-In Circ',
+                'text' => __('Ease-In Circ', 'cycloneslider'),
                 'value' => 'easeInCirc'
             ),
             array(
-                'text' => 'Ease-Out Circ',
+                'text' => __('Ease-Out Circ', 'cycloneslider'),
                 'value' => 'easeOutCirc'
             ),
             array(
-                'text' => 'Ease-In OutCirc',
+                'text' => __('Ease-In OutCirc', 'cycloneslider'),
                 'value' => 'easeInOutCirc'
             ),
             array(
-                'text' => 'Ease-In Elastic',
+                'text' => __('Ease-In Elastic', 'cycloneslider'),
                 'value' => 'easeInElastic'
             ),
             array(
-                'text' => 'Ease-Out Elastic',
+                'text' => __('Ease-Out Elastic', 'cycloneslider'),
                 'value' => 'easeOutElastic'
             ),
             array(
-                'text' => 'Ease-In OutElastic',
+                'text' => __('Ease-In OutElastic', 'cycloneslider'),
                 'value' => 'easeInOutElastic'
             ),
             array(
-                'text' => 'Ease-In Back',
+                'text' => __('Ease-In Back', 'cycloneslider'),
                 'value' => 'easeInBack'
             ),
             array(
-                'text' => 'Ease-Out Back',
+                'text' => __('Ease-Out Back', 'cycloneslider'),
                 'value' => 'easeOutBack'
             ),
             array(
-                'text' => 'Ease-In OutBack',
+                'text' => __('Ease-In OutBack', 'cycloneslider'),
                 'value' => 'easeInOutBack'
             ),
             array(
-                'text' => 'Ease-In Bounce',
+                'text' => __('Ease-In Bounce', 'cycloneslider'),
                 'value' => 'easeInBounce'
             ),
             array(
-                'text' => 'Ease-Out Bounce',
+                'text' => __('Ease-Out Bounce', 'cycloneslider'),
                 'value' => 'easeOutBounce'
             ),
             array(
-                'text' => 'Ease-In OutBounce',
+                'text' => __('Ease-In OutBounce', 'cycloneslider'),
                 'value' => 'easeInOutBounce'
             )
         );

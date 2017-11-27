@@ -17,6 +17,7 @@ class iHomefinderShortcodeDispatcher {
 	const BASIC_SEARCH_SHORTCODE = "optima_express_basic_search";
 	const ADVANCED_SEARCH_SHORTCODE = "optima_express_advanced_search";
 	const ORGANIZER_LOGIN_SHORTCODE = "optima_express_organizer_login";
+	const ORGANIZER_LOGIN_WIGET_SHORTCODE = "optima_express_organizer_login_widget";
 	const AGENT_DETAIL_SHORTCODE = "optima_express_agent_detail";
 	const AGENT_LIST_SHORTCODE = "optima_express_agent_list";
 	const OFFICE_LIST_SHORTCODE = "optima_express_office_list";
@@ -60,6 +61,7 @@ class iHomefinderShortcodeDispatcher {
 		add_shortcode(self::BASIC_SEARCH_SHORTCODE, array($this, "getBasicSearch"));
 		add_shortcode(self::ADVANCED_SEARCH_SHORTCODE, array($this, "getAdvancedSearch"));
 		add_shortcode(self::ORGANIZER_LOGIN_SHORTCODE, array($this, "getOrganizerLogin"));
+		add_shortcode(self::ORGANIZER_LOGIN_WIGET_SHORTCODE, array($this, "getOrganizerLoginWidget"));
 		add_shortcode(self::AGENT_DETAIL_SHORTCODE, array($this, "getAgentDetail"));
 		add_shortcode(self::AGENT_LIST_SHORTCODE, array($this, "getAgentList"));
 		add_shortcode(self::OFFICE_LIST_SHORTCODE, array($this, "getOfficeList"));
@@ -200,6 +202,19 @@ class iHomefinderShortcodeDispatcher {
 		return $content;
 	}
 
+	public function getOrganizerLoginWidget($attributes) {
+		$remoteRequest = new iHomefinderRequestor();
+		$remoteRequest
+			->addParameter("requestType", "property-organizer-login-form")
+			->addParameter("style", $this->getAttribute($attributes, "style"))
+			->addParameter("smallView", true)
+		;
+		$remoteResponse = $remoteRequest->remoteGetRequest();
+		$content = $remoteResponse->getBody();
+		$this->enqueueResource->addToFooter($remoteResponse->getHead());
+		return $content;
+	}
+
 	public function getAgentDetail($attributes) {
 		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::AGENT_DETAIL);
 		$virtualPage->addParameter("agentID", $this->getAttribute($attributes, "agentId"));
@@ -240,7 +255,6 @@ class iHomefinderShortcodeDispatcher {
 			->addParameter("smallView", true)
 			->addParameter("style", $this->getAttribute($attributes, "style"))
 		;
-		$remoteRequest->setCacheExpiration(60*60*24);
 		$remoteResponse = $remoteRequest->remoteGetRequest();
 		$content = $remoteResponse->getBody();
 		$this->enqueueResource->addToFooter($remoteResponse->getHead());

@@ -22,6 +22,7 @@ class iHomefinderRewriteRules {
 
 	private function __construct() {
 		$this->rootPageName = "index.php?pagename=non_existent_page";
+		$this->logger = iHomefinderLogger::getInstance();
 	}
 
 	public static function getInstance() {
@@ -77,6 +78,7 @@ class iHomefinderRewriteRules {
 		}
 		//anchor regex to prevent matching permalink contained in another permalink (ex. home-for-sale and home-for-sale-)
 		$regex = "^" . $regex . "$";
+		//$this->logger->debug("just added rewrite rule: " . $regex . $redirect);
 		add_rewrite_rule($regex, $redirect, "top");
 	}
 	
@@ -89,6 +91,7 @@ class iHomefinderRewriteRules {
 	private function addQueryVar($name) {
 		global $wp;
 		$wp->add_query_var($name);
+		//$this->logger->debug("just added query var: " . $name);
 	}
 	
 	/**
@@ -121,16 +124,48 @@ class iHomefinderRewriteRules {
 			$matchRulePrefix . $urlFactory->getOfficeListUrl(false)
 		);
 		$this->addRule(
+			iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_LIST,
+			$matchRulePrefix . $urlFactory->getMlsPortalBoardOfficeListUrl(false)
+		);
+		$this->addRule(
+			iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH,
+			$matchRulePrefix . $urlFactory->getMlsPortalBoardOfficeListNameStartsWithUrl(false)
+		);
+		$this->addRule(
 			iHomefinderVirtualPageFactory::OFFICE_DETAIL,
 			$matchRulePrefix . $urlFactory->getOfficeDetailUrl(false) . "/{officeName}/{officeId}"
+		);
+		$this->addRule(
+			iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_DETAIL,
+			$matchRulePrefix . $urlFactory->getMlsPortalBoardOfficeDetailUrl(false) . "/{boardOfficeName}/{boardOfficeId}"
 		);
 		$this->addRule(
 			iHomefinderVirtualPageFactory::AGENT_LIST,
 			$matchRulePrefix . $urlFactory->getAgentListUrl(false)
 		);
 		$this->addRule(
+			iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_LIST,
+			$matchRulePrefix . $urlFactory->getMlsPortalBoardMemberListUrl(false)
+		);
+		$this->addRule(
+			iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH,
+			$matchRulePrefix . $urlFactory->getMlsPortalBoardMemberListLastNameStartsWithUrl(false)
+		);
+		$this->addRule(
+			iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_SEARCH,
+			$matchRulePrefix . $urlFactory->getMlsPortalBoardOfficeSearchUrl(false)
+		);
+		$this->addRule(
+			iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_SEARCH,
+			$matchRulePrefix . $urlFactory->getMlsPortalBoardMemberSearchUrl(false)
+		);
+		$this->addRule(
 			iHomefinderVirtualPageFactory::AGENT_DETAIL,
 			$matchRulePrefix . $urlFactory->getAgentDetailUrl(false) . "/{agentName}/{agentId}"
+		);
+		$this->addRule(
+			iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_DETAIL,
+			$matchRulePrefix . $urlFactory->getMlsPortalBoardMemberDetailUrl(false) . "/{boardMemberName}/{boardMemberId}"
 		);
 		$this->addRule(
 			iHomefinderVirtualPageFactory::CONTACT_FORM,

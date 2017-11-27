@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Cyclone Slider\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-28 08:22+0800\n"
-"PO-Revision-Date: 2017-04-28 08:23+0800\n"
+"POT-Creation-Date: 2017-06-12 06:29+0800\n"
+"PO-Revision-Date: 2017-06-12 06:29+0800\n"
 "Last-Translator: \n"
 "Language-Team: kosinix <kosinix@codefleet.net>\n"
 "Language: en_US\n"
@@ -152,6 +152,10 @@ msgid ""
 "will be gone when the plugin is updated. <br />Location: <strong>%s</strong>"
 msgstr ""
 
+#: ../src/CycloneSlider/Admin.php:471
+msgid "Active Theme"
+msgstr ""
+
 #: ../src/CycloneSlider/Admin.php:472 ../src/CycloneSlider/Admin.php:477
 #: ../src/CycloneSlider/Admin.php:481
 #, php-format
@@ -162,6 +166,14 @@ msgstr ""
 msgid ""
 "Your template is in danger of being overwritten when you upgrade your theme. "
 "Please consider creating a WordPress plugin Cyclone Slider template."
+msgstr ""
+
+#: ../src/CycloneSlider/Admin.php:476
+msgid "WP Content"
+msgstr ""
+
+#: ../src/CycloneSlider/Admin.php:480
+msgid "Plugin"
 msgstr ""
 
 #: ../src/CycloneSlider/Admin.php:519
@@ -208,7 +220,7 @@ msgstr ""
 msgid "Error. Make sure its a valid YouTube URL."
 msgstr ""
 
-#: ../src/CycloneSlider/Data.php:267
+#: ../src/CycloneSlider/Data.php:288
 #, php-format
 msgid "Invalid format for get_slider %s parameter."
 msgstr ""
@@ -224,7 +236,7 @@ msgstr ""
 #: ../src/CycloneSlider/ExporterNextgen.php:65
 #: ../src/CycloneSlider/ImportPage.php:74
 #: ../src/CycloneSlider/NextgenIntegration.php:65
-#: ../src/legacy/inc/class-nextgen-integration.php:63 ../src/plugin.php:115
+#: ../src/legacy/inc/class-nextgen-integration.php:63 ../src/plugin.php:121
 msgid "Import"
 msgstr ""
 
@@ -254,7 +266,7 @@ msgstr ""
 msgid "Please choose a file name."
 msgstr ""
 
-#: ../src/CycloneSlider/ExportPageNextgen.php:72 ../src/plugin.php:102
+#: ../src/CycloneSlider/ExportPageNextgen.php:72 ../src/plugin.php:108
 msgid "Export Nextgen"
 msgstr ""
 
@@ -421,11 +433,11 @@ msgstr ""
 msgid "No sliders found."
 msgstr ""
 
-#: ../src/legacy/cyclone-slider.php:141 ../src/plugin.php:77
+#: ../src/legacy/cyclone-slider.php:141 ../src/plugin.php:83
 msgid "Cyclone Slider Settings"
 msgstr ""
 
-#: ../src/legacy/cyclone-slider.php:142 ../src/plugin.php:78
+#: ../src/legacy/cyclone-slider.php:142 ../src/plugin.php:84
 msgid "Settings"
 msgstr ""
 
@@ -586,19 +598,19 @@ msgstr ""
 msgid "[Slideshow not found]"
 msgstr ""
 
-#: ../src/plugin.php:88
+#: ../src/plugin.php:94
 msgid "Cyclone Slider Export"
 msgstr ""
 
-#: ../src/plugin.php:89
+#: ../src/plugin.php:95
 msgid "Export/Import"
 msgstr ""
 
-#: ../src/plugin.php:101
+#: ../src/plugin.php:107
 msgid "Cyclone Slider Nextgen Export"
 msgstr ""
 
-#: ../src/plugin.php:114
+#: ../src/plugin.php:120
 msgid "Cyclone Slider Import"
 msgstr ""
 

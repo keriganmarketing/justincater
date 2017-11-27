@@ -114,4 +114,24 @@ class iHomefinderQuickSearchWidget extends iHomefinderWidget {
 		<?php
 	}
 	
+	protected function isEnabled($instance) {
+		$result = parent::isEnabled($instance);
+		$virtualPageType = get_query_var(iHomefinderConstants::IHF_TYPE_URL_VAR);
+		switch($virtualPageType) {
+			case iHomefinderVirtualPageFactory::LISTING_SEARCH_FORM:
+				$result = false;
+				break;
+			case iHomefinderVirtualPageFactory::LISTING_ADVANCED_SEARCH_FORM:
+				$result = false;
+				break;
+			case iHomefinderVirtualPageFactory::ORGANIZER_EDIT_SAVED_SEARCH;
+				$result = false;
+				break;
+			case iHomefinderVirtualPageFactory::MAP_SEARCH_FORM:
+				$result = false;
+				break;
+		}
+		return $result;	
+	}
+	
 }

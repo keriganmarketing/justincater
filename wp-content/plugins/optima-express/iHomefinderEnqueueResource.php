@@ -2,6 +2,8 @@
 
 class iHomefinderEnqueueResource {
 	
+	private $httpHeaders = array();
+	private $httpStatusCode;
 	private $header = array();
 	private $footer = array();
 	private $metaTags = array();
@@ -85,6 +87,29 @@ class iHomefinderEnqueueResource {
 		foreach($this->metaTags as $value) {
 			echo $value;
 		}
+	}
+	
+	public function addHttpHeader($httpHeader) {
+		$this->httpHeaders[] = $httpHeader;
+	}
+	
+	public function outputHttpHeaders() {
+		if(!headers_sent()) {
+			foreach($this->httpHeaders as $value) {
+				header($value, true);
+			}			
+		}
+	}
+	
+	public function setHttpStatusCode($httpStatusCode) {
+		$this->httpStatusCode = $httpStatusCode;
+	}
+	
+	public function outputHttpsStatus() {
+		if($this->httpStatusCode !== null) {
+			status_header($this->httpStatusCode);		
+		}
+		
 	}
 	
 }

@@ -468,16 +468,16 @@ class CycloneSlider_Admin {
                 $templates[$name]['location_details'] = sprintf( __('You should not make changes to templates in this location. All your changes will be gone when the plugin is updated. <br />Location: <strong>%s</strong>', 'cycloneslider' ), $template['path']);
             }
             if( $template['location_name'] == 'active-theme' ){
-                $templates[$name]['location_name'] = 'Active Theme';
+                $templates[$name]['location_name'] = __('Active Theme', 'cycloneslider');
                 $templates[$name]['location_details'] = sprintf( __("Location: <strong>%s</strong>", 'cycloneslider' ), $template['path']);
                 $templates[$name]['warning'] = sprintf( __('Your template is in danger of being overwritten when you upgrade your theme. Please consider creating a WordPress plugin Cyclone Slider template.', 'cycloneslider' ) );
             }
             if( $template['location_name'] == 'wp-content' ){
-                $templates[$name]['location_name'] = 'WP Content';
+                $templates[$name]['location_name'] = __('WP Content', 'cycloneslider');
                 $templates[$name]['location_details'] = sprintf( __("Location: <strong>%s</strong>", 'cycloneslider'), $template['path'] );
             }
             if( $template['location_name'] == 'plugin' ){
-                $templates[$name]['location_name'] = 'Plugin';
+                $templates[$name]['location_name'] = __('Plugin', 'cycloneslider');
                 $templates[$name]['location_details'] = sprintf( __("Location: <strong>%s</strong>", 'cycloneslider'), $template['path'] );
             }
             // Remove inactive templates

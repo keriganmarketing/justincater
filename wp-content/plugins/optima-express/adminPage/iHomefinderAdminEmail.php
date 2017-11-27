@@ -33,7 +33,7 @@ class iHomefinderAdminEmail extends iHomefinderAdminAbstractPage {
 		$emailDisplayType = get_option(iHomefinderConstants::EMAIL_DISPLAY_TYPE_OPTION, null);
 		?>
 		<h2>Email Branding</h2>
-		<p>Add branding to the emails sent to leads by choosing an option below. Information saved here will overwrite branding entered in the Control Panel.</p>
+		<p>Add branding to the emails sent to leads by choosing an option below.</p>
 		<form method="post" action="options.php">
 			<?php settings_fields(iHomefinderConstants::OPTION_GROUP_EMAIL_DISPLAY); ?>
 			<?php if($this->includeDefaultDisplay()) { ?>

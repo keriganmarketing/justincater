@@ -131,7 +131,7 @@ class iHomefinderAdminActivate extends iHomefinderAdminAbstractPage {
 					</div>
 					<p>Thank you for evaluating Optima Express!</p>
 					<p>Your trial account uses sample listing data from Northern California. For search and listings in your MLS, <a href="http://<?php echo iHomefinderConstants::IHOMEFINDER_STORE_EXTERNAL_URL ?>/convert.php?cid=<?php echo $clientId ?>" target="_blank">upgrade to a paid account</a>.</p>
-					<p>Visit our <a href="http://support.ihomefinder.com/index.php?/Knowledgebase/List/Index/23/optima-express-responsive/" target="_blank">knowledge base</a> for assistance setting up IDX on your site.</p>
+					<p>Visit our <a href="https://help.ihomefinder.com/" target="_blank">knowledge base</a> for assistance setting up IDX on your site.</p>
 					<p>Don't hesitate to <a href="http://www.ihomefinder.com/contact-us/" target="_blank">contact us</a> if you have any questions.</p>
 				<?php } else { ?>
 					<div class="error">

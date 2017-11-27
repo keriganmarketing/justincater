@@ -7,42 +7,42 @@ abstract class iHomefinderWidget extends WP_Widget {
 		//type is only defined for ihomefinder page. 
 		//If not set, then always display the widget.
 		$virtualPageType = get_query_var(iHomefinderConstants::IHF_TYPE_URL_VAR);
+		
 		if(empty($virtualPageType)) {
 			//always display the widget for non OE virtual pages
 			$result = true;
-		} elseif(!array_key_exists(iHomefinderVirtualPageFactory::LISTING_DETAIL, $instance)) {
-			//If the widget instance does not have the listing detail key, then we have a plugin
-			//That has been upgraded, but the user did not update the widget. In this case
-			//we default to the previous behavior of displaying the widget on all pages.
+		} else if(!array_key_exists($virtualPageType, $instance)) {
+			//display the widget on all pages if the there are no IDX page select checkboxes.
+			//In some cases the widget may have checkboxes (checked) but no entries in the database. In this case we have a plugin that has been upgraded
+			//the widget will also display in this case
 			$result = true;
-		} elseif(array_key_exists($virtualPageType, $instance) && $instance[$virtualPageType] === "true") {
+		} else if(array_key_exists($virtualPageType, $instance) && iHomefinderUtility::getInstance()->isTruthy($instance[$virtualPageType])) {
 			//We have enabled the type for this widget see iHomefinderVirtualPageFactory for valid types
 			$result = true;
 		} else {
-			//Special cases that are not covered specifically by type
-			if($instance[iHomefinderVirtualPageFactory::HOT_SHEET_LISTING_REPORT] === "true") {	
-				//If set to display with Hotsheet, then also display in the Hotsheet list.
-				if(
-					$virtualPageType === iHomefinderVirtualPageFactory::HOT_SHEET_LIST
-					|| $virtualPageType === iHomefinderVirtualPageFactory::HOT_SHEET_OPEN_HOME_REPORT
-					|| $virtualPageType === iHomefinderVirtualPageFactory::HOT_SHEET_MARKET_REPORT
-				) {
-					$result = true;
-				}
-			} elseif($instance[iHomefinderVirtualPageFactory::ORGANIZER_LOGIN] === "true") {
-				//If set to display for Organizer, then enabled for saved listings and search
-				if($virtualPageType === iHomefinderVirtualPageFactory::ORGANIZER_VIEW_SAVED_LISTING_LIST) {
-					$result = true;
-				} elseif($virtualPageType === iHomefinderVirtualPageFactory::ORGANIZER_EDIT_SAVED_SEARCH) {
-					$result = true;
-				}
-			} elseif($instance[iHomefinderVirtualPageFactory::ORGANIZER_EDIT_SAVED_SEARCH] === "true") {
-				//Email Alerts page
-				if($virtualPageType === iHomefinderVirtualPageFactory::ORGANIZER_EMAIL_UPDATES_CONFIRMATION) {
-					$result = true;
-				}
+			//Special cases that are not covered specifically by type such as subpages covered by enabling one page
+			if(
+				array_key_exists(iHomefinderVirtualPageFactory::ORGANIZER_EDIT_SAVED_SEARCH, $instance)
+				&& iHomefinderUtility::getInstance()->isTruthy($instance[iHomefinderVirtualPageFactory::ORGANIZER_EDIT_SAVED_SEARCH])
+				&& iHomefinderVirtualPageFactory::isEmailAlertsPage($virtualPageType)
+			) {
+				$result = true;
 			}
-		}
+			if(
+				array_key_exists(iHomefinderVirtualPageFactory::ORGANIZER_LOGIN, $instance)
+				&& iHomefinderUtility::getInstance()->isTruthy($instance[iHomefinderVirtualPageFactory::ORGANIZER_LOGIN])
+				&& iHomefinderVirtualPageFactory::isOrganizerPage($virtualPageType)
+			) {
+				$result = true;
+			}
+			if(
+				array_key_exists(iHomefinderVirtualPageFactory::HOT_SHEET_LISTING_REPORT, $instance)
+				&& iHomefinderUtility::getInstance()->isTruthy($instance[iHomefinderVirtualPageFactory::HOT_SHEET_LISTING_REPORT])
+				&& iHomefinderVirtualPageFactory::isHotSheetPage($virtualPageType)
+			) {
+				$result = true;
+			}
+		}		
 		return $result;
 	}
 	
@@ -50,7 +50,7 @@ abstract class iHomefinderWidget extends WP_Widget {
 		$instance = $oldInstance;
 		$virtualPages = $this->getVirtualPages();
 		foreach($virtualPages as $virtualPageType => $label) {
-			$instance[$virtualPageType] = empty($newInstance[$virtualPageType]) ? "false" : "true";
+			$instance[$virtualPageType] = empty($newInstance[$virtualPageType]) ? false : true;
 		}
 		return $instance;
 	}
@@ -82,7 +82,7 @@ abstract class iHomefinderWidget extends WP_Widget {
 				$fieldId = $this->get_field_id($virtualPageType);
 				$fieldName = $this->get_field_name($virtualPageType);
 				$fieldValue = true;
-				if(array_key_exists($virtualPageType, $instance) && $instance[$virtualPageType] === "false") {
+				if(array_key_exists($virtualPageType, $instance) && iHomefinderUtility::getInstance()->isFalsy($instance[$virtualPageType])) {
 					$fieldValue = false;
 				}
 				?>

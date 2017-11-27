@@ -272,8 +272,29 @@ class iHomefinderUrlFactory {
 		return $result;
 	}
 	
+	public function getMlsPortalBoardOfficeListUrl($includeBaseUrl = true) {
+		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_LIST);
+		$permalink = $virtualPage->getPermalink();
+		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
+		return $result;
+	}
+	
+	public function getMlsPortalBoardOfficeListNameStartsWithUrl($includeBaseUrl = true) {
+		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH);
+		$permalink = $virtualPage->getPermalink();
+		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
+		return $result;
+	}
+	
 	public function getOfficeDetailUrl($includeBaseUrl = true) {
 		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::OFFICE_DETAIL);
+		$permalink = $virtualPage->getPermalink();
+		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
+		return $result;
+	}
+	
+	public function getMlsPortalBoardOfficeDetailUrl($includeBaseUrl = true) {
+		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_DETAIL);
 		$permalink = $virtualPage->getPermalink();
 		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
 		return $result;
@@ -286,8 +307,43 @@ class iHomefinderUrlFactory {
 		return $result;
 	}
 	
+	public function getMlsPortalBoardMemberListUrl($includeBaseUrl = true) {
+		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_LIST);
+		$permalink = $virtualPage->getPermalink();
+		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
+		return $result;
+	}
+	
+	public function getMlsPortalBoardMemberListLastNameStartsWithUrl($includeBaseUrl = true) {
+		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH);
+		$permalink = $virtualPage->getPermalink();
+		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
+		return $result;
+	}
+	
 	public function getAgentDetailUrl($includeBaseUrl = true) {
 		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::AGENT_DETAIL);
+		$permalink = $virtualPage->getPermalink();
+		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
+		return $result;
+	}
+	
+	public function getMlsPortalBoardMemberDetailUrl($includeBaseUrl = true) {
+		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_DETAIL);
+		$permalink = $virtualPage->getPermalink();
+		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
+		return $result;
+	}
+	
+	public function getMlsPortalBoardMemberSearchUrl($includeBaseUrl = true) {
+		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_SEARCH);
+		$permalink = $virtualPage->getPermalink();
+		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
+		return $result;
+	}
+	
+	public function getMlsPortalBoardOfficeSearchUrl($includeBaseUrl = true) {
+		$virtualPage = $this->virtualPageFactory->getVirtualPage(iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_SEARCH);
 		$permalink = $virtualPage->getPermalink();
 		$result = $this->prependBaseUrl($permalink, $includeBaseUrl);
 		return $result;

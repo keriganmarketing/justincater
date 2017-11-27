@@ -98,6 +98,18 @@ class iHomefinderAjaxHandler {
 		$this->basicAjaxSubmit("email-listing");
 	}
 	
+	public function emailBoardMember() {
+		$boardMemberId = iHomefinderUtility::getInstance()->getRequestVar("boardMemberId");
+          $emailArray = array("boardMemberId" => $boardMemberId);
+		$this->basicAjaxSubmit("email-board-member", $emailArray);
+	}
+	
+	public function emailBoardOffice() {
+		$boardOfficeId = iHomefinderUtility::getInstance()->getRequestVar("boardOfficeId");
+          $emailArray = array("boardOfficeId" => $boardOfficeId);
+		$this->basicAjaxSubmit("email-board-office", $boardOfficeId);
+	}
+	
 	public function emailSignup() {
 		$this->basicAjaxSubmit("email-signup");
 	}

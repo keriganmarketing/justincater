@@ -3,7 +3,7 @@
 Plugin Name: Optima Express IDX Plugin
 Plugin URI: http://wordpress.org/extend/plugins/optima-express/
 Description: Adds MLS / IDX property search and listings to your site. Includes search and listing pages, widgets and shortcodes. Requires an IDX account from iHomefinder. Get a free trial account with sample IDX data, or a paid account with data from your MLS.
-Version: 3.7.1
+Version: 4.0.2
 Author: ihomefinder
 Author URI: http://www.ihomefinder.com
 License: GPL
@@ -15,7 +15,7 @@ $autoloader = iHomefinderAutoloader::getInstance();
 $installer = iHomefinderInstaller::getInstance();
 $rewriteRules = iHomefinderRewriteRules::getInstance();
 $admin = iHomefinderAdmin::getInstance();
-$shortcodeSelector = iHomefinderShortcodeSelector::getInstance();
+$shortcodeSelector = iHomefinderShortcodeSelectorTinyMce::getInstance();
 $shortcodeDispatcher = iHomefinderShortcodeDispatcher::getInstance();
 $stateManager = iHomefinderStateManager::getInstance();
 $enqueueResource = iHomefinderEnqueueResource::getInstance();
@@ -54,6 +54,7 @@ if(is_admin()) {
 	multisite network admin	or if the plugin files were manually copied into wordpress.
 	*/
 	add_action("setup_theme", array($installer, "upgrade"));
+	add_action("setup_theme", array($stateManager, "setupLeadCaptureUser"));
 	add_action("init", array($enqueueResource, "enqueue"));
 	add_action("wp_head", array($enqueueResource, "getMetaTags"), -100);
 	add_action("wp_head", array($enqueueResource, "getHeader"));
@@ -91,6 +92,9 @@ if($displayRules->isSearchByListingIdEnabled()) {
 if($displayRules->isContactFormWidgetEnabled()) {
 	add_action("widgets_init", create_function("", "return register_widget('iHomefinderContactFormWidget');"));
 }
+if($displayRules->isLoginWidgetSmallEnabled()) {
+	add_action("widgets_init", create_function("", "return register_widget('iHomefinderLoginWidget');"));
+}
 if($displayRules->isMoreInfoEnabled()) {
 	add_action("widgets_init", create_function("", "return register_widget('iHomefinderMoreInfoWidget');"));
 }
@@ -125,6 +129,8 @@ add_action("wp_ajax_nopriv_ihf_contact_form_request", array($ajaxHandler, "conta
 add_action("wp_ajax_nopriv_ihf_send_password", array($ajaxHandler, "sendPassword"));
 add_action("wp_ajax_nopriv_ihf_email_alert_popup", array($ajaxHandler, "emailAlertPopup"));
 add_action("wp_ajax_nopriv_ihf_email_listing", array($ajaxHandler, "emailListing"));
+add_action("wp_ajax_nopriv_ihf_email_board_member", array($ajaxHandler, "emailBoardMember"));
+add_action("wp_ajax_nopriv_ihf_email_board_office", array($ajaxHandler, "emailBoardOffice"));
 add_action("wp_ajax_nopriv_ihf_email_signup", array($ajaxHandler, "emailSignup"));
 add_action("wp_ajax_nopriv_ihf_clear_cache", array($ajaxHandler, "clearCache"));
 add_action("wp_ajax_nopriv_ihf_advanced_search_multi_selects", array($ajaxHandler, "advancedSearchMultiSelects")); //@deprecated
@@ -145,6 +151,8 @@ add_action("wp_ajax_ihf_contact_form_request", array($ajaxHandler, "contactFormR
 add_action("wp_ajax_ihf_send_password", array($ajaxHandler, "sendPassword"));
 add_action("wp_ajax_ihf_email_alert_popup", array($ajaxHandler, "emailAlertPopup"));
 add_action("wp_ajax_ihf_email_listing", array($ajaxHandler, "emailListing"));
+add_action("wp_ajax_ihf_email_board_member", array($ajaxHandler, "emailBoardMember"));
+add_action("wp_ajax_ihf_email_board_office", array($ajaxHandler, "emailBoardOffice"));
 add_action("wp_ajax_ihf_email_signup", array($ajaxHandler, "emailSignup"));
 add_action("wp_ajax_ihf_clear_cache", array($ajaxHandler, "clearCache"));
 add_action("wp_ajax_ihf_tiny_mce_shortcode_dialog", array($shortcodeSelector, "getShortcodeSelectorContent"));
@@ -154,3 +162,6 @@ add_action("wp_ajax_ihf_area_autocomplete", array($ajaxHandler, "getAutocomplete
 
 //Disable canonical urls, because we use a single page to display all results and WordPress creates a single canonical url for all of the virtual urls like the detail page and featured results.
 remove_action("wp_head", "rel_canonical");
+
+add_action("template_redirect", array($enqueueResource, "outputHttpHeaders"));
+add_action("template_redirect", array($enqueueResource, "outputHttpsStatus"));

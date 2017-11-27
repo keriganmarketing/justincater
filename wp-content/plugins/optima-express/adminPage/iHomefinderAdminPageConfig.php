@@ -116,6 +116,47 @@ class iHomefinderAdminPageConfig extends iHomefinderAdminAbstractPage {
 		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_AGENT_DETAIL);
 		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_AGENT_DETAIL);
 		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_AGENT_DETAIL);
+		
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_SEARCH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_SEARCH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_SEARCH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_SEARCH);
+		
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_LIST);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_LIST);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_LIST);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_LIST);
+		
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH);
+		
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_DETAIL);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_DETAIL);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_DETAIL);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_DETAIL);
+		
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_SEARCH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_SEARCH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_SEARCH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_SEARCH);
+		
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_LIST);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_LIST);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_LIST);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_LIST);
+		
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH);
+		
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_DETAIL);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_DETAIL);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_DETAIL);
+		register_setting(iHomefinderConstants::OPTION_VIRTUAL_PAGE_CONFIG, iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_DETAIL);
+		
 	}
 	
 	private function showDuplicateUrlMessage() {
@@ -243,6 +284,10 @@ class iHomefinderAdminPageConfig extends iHomefinderAdminAbstractPage {
 						if($displayRules->isAgentBioEnabled()) {
 							$this->getAgentListPageSetup();
 							$this->getAgentDetailPageSetup();
+						}
+						if($displayRules->isMlsDisplay() && $displayRules->isMlsAgentDirectory()) {
+							$this->getMlsPortalOfficeSearchPageSetup();
+							$this->getMlsPortalAgentSearchPageSetup();
 						}
 						$this->getDefaultPageSetup();
 						?>
@@ -521,6 +566,28 @@ class iHomefinderAdminPageConfig extends iHomefinderAdminAbstractPage {
 			"titleOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_AGENT_DETAIL,
 			"templateOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_AGENT_DETAIL,
 			"metaTagsOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_AGENT_DETAIL,
+		));
+	}
+	
+	private function getMlsPortalAgentSearchPageSetup() {
+		$this->getPageSetup(array(
+			"sectionTitle" => "MLS Portal Agent Search",
+			"virtualPageType" => iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_MEMBER_SEARCH, 
+			"permalinkOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_MEMBER_SEARCH,
+			"titleOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_MEMBER_SEARCH,
+			"templateOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_MEMBER_SEARCH,
+			"metaTagsOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_MEMBER_SEARCH,
+		));
+	}
+	
+	private function getMlsPortalOfficeSearchPageSetup() {
+		$this->getPageSetup(array(
+			"sectionTitle" => "MLS Portal Office Search",
+			"virtualPageType" => iHomefinderVirtualPageFactory::MLS_PORTAL_BOARD_OFFICE_SEARCH, 
+			"permalinkOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_PERMALINK_TEXT_MLS_PORTAL_BOARD_OFFICE_SEARCH,
+			"titleOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_TITLE_MLS_PORTAL_BOARD_OFFICE_SEARCH,
+			"templateOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_TEMPLATE_MLS_PORTAL_BOARD_OFFICE_SEARCH,
+			"metaTagsOption" => iHomefinderConstants::OPTION_VIRTUAL_PAGE_META_TAGS_MLS_PORTAL_BOARD_OFFICE_SEARCH,
 		));
 	}
 	

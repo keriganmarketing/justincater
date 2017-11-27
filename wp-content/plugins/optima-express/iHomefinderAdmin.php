@@ -123,6 +123,7 @@ class iHomefinderAdmin {
 		$displayRules = iHomefinderDisplayRules::getInstance();
 		add_menu_page("Optima Express", "Optima Express", "manage_options", iHomefinderConstants::PAGE_INFORMATION, array(iHomefinderAdminInformation::getInstance(), "getPage"));
 		add_submenu_page(iHomefinderConstants::PAGE_INFORMATION, "Information", "Information", "manage_options", iHomefinderConstants::PAGE_INFORMATION, array(iHomefinderAdminInformation::getInstance(), "getPage"));
+		add_submenu_page(iHomefinderConstants::PAGE_INFORMATION, "Shortcodes", "Shortcodes", "manage_options", iHomefinderConstants::PAGE_SHORTCODES, array(iHomefinderAdminShortcodes::getInstance(), "getPage"));
 		add_submenu_page(iHomefinderConstants::PAGE_INFORMATION, "Register", "Register", "manage_options", iHomefinderConstants::PAGE_ACTIVATE, array(iHomefinderAdminActivate::getInstance(), "getPage"));
 		if($this->isActivated()) {
 			add_submenu_page(iHomefinderConstants::PAGE_INFORMATION, "IDX Control Panel", "IDX Control Panel", "manage_options", iHomefinderConstants::PAGE_IDX_CONTROL_PANEL, array(iHomefinderAdminControlPanel::getInstance(), "getPage"));
@@ -290,6 +291,14 @@ class iHomefinderAdmin {
 		$agentBioListUrl = urlencode($urlFactory->getAgentListUrl(true));
 		$agentBioDetailUrl = urlencode($urlFactory->getAgentDetailUrl(true));
 		$mapSearchUrl = urlencode($urlFactory->getMapSearchFormUrl(true));
+		$mlsPortalBoardOfficeListUrl = urlencode($urlFactory->getMlsPortalBoardOfficeListUrl(true));
+		$mlsPortalBoardOfficeListNameStartsWithUrl = urlencode($urlFactory->getMlsPortalBoardOfficeListNameStartsWithUrl(true));
+		$mlsPortalBoardOfficeDetailUrl = urlencode($urlFactory->getMlsPortalBoardOfficeDetailUrl(true));
+		$mlsPortalBoardMemberListUrl = urlencode($urlFactory->getMlsPortalBoardMemberListUrl(true));
+		$mlsPortalBoardMemberListLastNameStartsWithUrl = urlencode($urlFactory->getMlsPortalBoardMemberListLastNameStartsWithUrl(true));
+		$mlsPortalBoardMemberDetailUrl = urlencode($urlFactory->getMlsPortalBoardMemberDetailUrl(true));
+		$mlsPortalBoardMemberSearchUrl = urlencode($urlFactory->getMlsPortalBoardMemberSearchUrl(true));
+		$mlsPortalBoardOfficeSearchUrl = urlencode($urlFactory->getMlsPortalBoardOfficeSearchUrl(true));
 		$cssOverride = urlencode(get_option(iHomefinderConstants::CSS_OVERRIDE_OPTION, null));
 		$layoutType = urlencode($this->displayRules->getLayoutType());
 		$colorScheme = urlencode($this->displayRules->getColorScheme());
@@ -359,6 +368,14 @@ class iHomefinderAdmin {
 			->addParameter("agentBioDetailUrl", $agentBioDetailUrl)
 			->addParameter("mapSearchUrl", $mapSearchUrl)
 			->addParameter("cssOverride", $cssOverride)
+			->addParameter("mlsPortalBoardOfficeResultsUrl", $mlsPortalBoardOfficeListUrl)
+			->addParameter("mlsPortalBoardOfficeResultsLastNameStartsWithUrl", $mlsPortalBoardOfficeListNameStartsWithUrl)
+			->addParameter("mlsPortalBoardOfficeDetailUrl", $mlsPortalBoardOfficeDetailUrl)
+			->addParameter("mlsPortalBoardMemberResultsUrl", $mlsPortalBoardMemberListUrl)
+			->addParameter("mlsPortalBoardMemberResultsLastNameStartsWithUrl", $mlsPortalBoardMemberListLastNameStartsWithUrl)
+			->addParameter("mlsPortalBoardMemberDetailUrl", $mlsPortalBoardMemberDetailUrl)
+			->addParameter("mlsPortalBoardMemberSearchUrl", $mlsPortalBoardMemberSearchUrl)
+			->addParameter("mlsPortalBoardOfficeSearchUrl", $mlsPortalBoardOfficeSearchUrl)
 			->addParameter("layoutType", $layoutType)
 			->addParameter("colorScheme", $colorScheme)
 			->addParameter("mobileSiteYn", $mobileSiteYn)

@@ -14,6 +14,8 @@ class iHomefinderAdminInformation extends iHomefinderAdminAbstractPage {
 	protected function getContent() {
 		?>
 		<h2>Information</h2>
+		<h3>Shortcodes</h3>
+		<p>Create Optima Express shortcodes and copy them to your clipboard.</p>
 		<h3>Register</h3>
 		<p>The Optima Express plugin needs to be registered with iHomefinder. Registration is automatic if you signup for a trial account or purchase a live account from this page. Or, you can enter a registration key that you've received separately.</p>
 		<h3>IDX Pages</h3>

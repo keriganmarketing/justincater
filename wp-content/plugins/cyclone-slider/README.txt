@@ -3,7 +3,7 @@ Contributors: kosinix
 Donate link: http://www.codefleet.net/donate/
 Tags: slider, slideshow, drag-and-drop, wordpress-slider, wordpress-slideshow, cycle 2, jquery, responsive, translation-ready, custom-post, cyclone-slider
 Requires at least: 3.5
-Tested up to: 4.7.3
+Tested up to: 4.8
 Stable tag: trunk
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -117,6 +117,14 @@ See: [http://docs.codefleet.net/cyclone-slider/creating-your-own-template/](http
 5. Slideshow Settings
 
 == Changelog ==
+
+= 3.2.0 - 2017-07-04 =
+* Fix issue with font awesome not loading when used by other plugins.
+* Used SVG for icons.
+
+= 3.1.3 - 2017-06-12 =
+* Fix language files not loaded.
+* Updated Japanese language files.
 
 = 3.1.2 - 2017-05-04 =
 * Fix "Slideshow not found" error when using numeric slideshow slugs. Eg. "011".

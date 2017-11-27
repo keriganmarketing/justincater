@@ -124,6 +124,14 @@
 	color: #A2A2A2;
 }
 
+.cs-slide-settings svg {
+	margin: 3px;
+    vertical-align: middle;
+}
+.cs-slide-settings .expandable-header span{
+	display: inline-block;
+    vertical-align: middle;
+}
 .cs-slide-settings .expandable-header {
 	border: 0;
 	text-align: right;
@@ -143,7 +151,6 @@
 
 /* Admin - Blue */
 .admin-color-blue .cs-title,
-.admin-color-blue .cs-header .cs-icon,
 .admin-color-blue .cs-templates, 
 .admin-color-blue .cs-templates .body.active,
 .admin-color-blue .cs-templates a,
@@ -158,7 +165,6 @@
 
 /* Admin - Ocean */
 .admin-color-ocean .cs-title,
-.admin-color-ocean .cs-header .cs-icon,
 .admin-color-ocean .cs-templates, 
 .admin-color-ocean .cs-templates .body.active,
 .admin-color-ocean .cs-templates a,
@@ -173,7 +179,6 @@
 
 /* Admin - Coffee */
 .admin-color-coffee .cs-title,
-.admin-color-coffee .cs-header .cs-icon,
 .admin-color-coffee .cs-templates,
 .admin-color-coffee .cs-templates a,
 .admin-color-coffee.cycloneslider h2,
@@ -190,7 +195,6 @@
 }
 .admin-color-coffee .cs-header,
 .admin-color-coffee .cs-body,
-.admin-color-coffee .cs-header .cs-icon,
 .admin-color-coffee .cs-slide-type-bar {
 	border-color: #D8CCC2;
 }
@@ -201,7 +205,6 @@
 
 /* Admin - Ectoplasm */
 .admin-color-ectoplasm .cs-title,
-.admin-color-ectoplasm .cs-header .cs-icon,
 .admin-color-ectoplasm .cs-templates, 
 .admin-color-ectoplasm .cs-templates a,
 .admin-color-ectoplasm.cycloneslider h2,
@@ -217,7 +220,6 @@
 }
 .admin-color-ectoplasm .cs-header,
 .admin-color-ectoplasm .cs-body,
-.admin-color-ectoplasm .cs-header .cs-icon,
 .admin-color-ectoplasm .cs-slide-type-bar {
 	border-color: #D8CAEC;
 }
@@ -228,7 +230,6 @@
 
 /* Admin - Sunrise */
 .admin-color-sunrise .cs-title,
-.admin-color-sunrise .cs-header .cs-icon,
 .admin-color-sunrise .cs-templates, 
 .admin-color-sunrise .cs-templates .body.active,
 .admin-color-sunrise .cs-templates a,
@@ -241,22 +242,7 @@
 	color: #8B3B38;
 }
 
-.cs-header .cs-icon{
-	float:left;
-	padding:6px;
-	border-right:1px solid #D3D3D3;
-}
-.rtl .cs-header .cs-icon{
-	float:right;
-	border-left:1px solid #D3D3D3;
-	border-right:0;
-}
-.cs-icon i{
-	font-size: 14px;
-	width:14px;
-	height:14px;
-	display:none;
-}
+
 .cs-title{
     float:left;
 	padding:4px 6px;
@@ -284,18 +270,18 @@
 	outline:0;
 	cursor: pointer;
 }
-.cs-controls .cs-delete{
-    color: #CC0A0C;
+.cs-controls .cs-delete svg{
+    fill: #CC0A0C;
 }
-.cs-controls .cs-minimize{
-    color: #444;
+.cs-controls .cs-minimize svg{
+    fill: #444;
 }
 .cs-slide:hover .cs-header,
 .cs-slide:hover .cs-body{
     border-color:#c0c0c0;
 }
-.cs-header .cs-delete:hover{
-    color:#ff0000;
+.cs-header .cs-delete:hover svg{
+    fill:#ff0000;
 }
 .cs-body{
     background:#F5F5F5;
@@ -362,23 +348,32 @@
 .switcher {
 	cursor: pointer;
 }
-.switcher > i {
-	position: absolute;
-	right: 10px;
-	top: 50%;
-	transform: translateY(-60%);
-}
+
 .switcher .display {
 	display: block;
 	min-width: 115px;
 	border-right: 1px solid #d3d3d3;
 	padding: 5px 25px 5px 10px;
 }
-.switcher .display i,
-.switcher li i {
-	display: inline-block;
-	min-width: 15px;
+.cycloneslider .meta-box-sortables svg {
+	width: 16px;
+    height: 16px;
+    fill: #444;
 }
+.switcher .display svg,
+.switcher li svg {
+	float: left;
+    margin-top: 1px;
+}
+.cycloneslider .meta-box-sortables .switcher > svg {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 24px;
+	height: 24px;
+}
+
 .switcher .display span,
 .switcher li span {
 	margin-left: 5px;
@@ -412,7 +407,9 @@
 	background: #d54e21;
     color: #fff;
 }
-
+.switcher li:hover svg {
+	fill: #fff;
+}
 
 /*** Video ***/
 .cs-video-preview{

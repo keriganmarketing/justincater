@@ -3,10 +3,7 @@
 class iHomefinderRemoteResponse {
 	
 	private $response;
-	
-	public function __construct($response) {
-		$this->setResponse($response);
-	}
+	private $body;
 	
 	public function getResponse() {
 		return $this->response;
@@ -16,9 +13,15 @@ class iHomefinderRemoteResponse {
 		$this->response = $response;
 	}
 	
+	public function setBody($body) {
+		$this->body = $body; 
+	}
+	
 	public function getBody() {
 		$content = null;
-		if(is_null($this->response)) {
+		if($this->body !== null) {
+			$content = $this->body;
+		} elseif(is_null($this->response)) {
 			//We could reach this code, if the iHomefinder services are down.
 			$content = "<br />Sorry we are experiencing system issues. Please try again.<br />";
 		} elseif(property_exists($this->response, "error")) {
@@ -29,10 +32,6 @@ class iHomefinderRemoteResponse {
 			$content = html_entity_decode($this->response->view, null, "UTF-8");
 		}
 		return $content;
-	}
-	
-	public function hasBody() {
-		return $this->hasProperty("view");
 	}
 	
 	public function getCss() {
@@ -210,8 +209,10 @@ class iHomefinderRemoteResponse {
 	private function convertItemValues($fromValue) {
 		if(iHomefinderDisplayRules::getInstance()->hasItemInSearchFormData()) {
 			$result = array();
-			foreach($fromValue->item as $element) {
-				$result[] = $element;
+			if(!empty($fromValue)){
+				foreach($fromValue->item as $element) {
+					$result[] = $element;
+				}			
 			}
 		} else {
 			$result = $fromValue;

@@ -167,6 +167,41 @@ function agentimage_func( $atts, $content = null ) {
 }
 add_shortcode( 'agentimage_credits', 'agentimage_func' );
 
+//featured properties
+function featuredproperties_func( $atts, $content = null ) {
+
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, "http://mls.kerigan.com/api/agentlistings/B4557");
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$output = json_decode(curl_exec($ch));
+
+	$return = '<h2>Featured <strong>Properties</strong></h2>';
+	$return .= '<div class="fp-slides">';
+
+	$i = 0;
+	foreach($output as $listing){
+		$url = str_replace(' ','-',$listing->street_number.'-'.$listing->street_name.'-'.$listing->city.'-'.$listing->state.'-'.$listing->zip.'/'.$listing->mls_account.'/291/');
+		$return .= '<div class="fp slick-slide" data-slick-index="'.$i.'" aria-hidden="true" tabindex="-1" role="option" aria-describedby="slick-slide'.$i.'" style="width: 635px;">
+	    <a href="/homes-for-sale-details/'.$url.'" tabindex="-1">
+	        <div class="imageWrap" style="background-image: url(\''.$listing->preferred_image.'\')">
+	        <!-- <img src="'.$listing->preferred_image.'" alt="Justin Cater" width="533" height="222"> -->
+	        </div>
+	        <div class="fp-content">
+	        <span class="fp-price">$'.number_format($listing->price).'</span>
+	        <span class="fp-add">'.$listing->street_number.' '.$listing->street_name.'<br>'.$listing->city.', '.$listing->state.' '.$listing->zip.'</span>
+	        </div>
+	    </a>
+	    </div>';
+		$i++;
+	}
+	$return .= '</div>';
+
+	curl_close($ch);
+
+	return $return;
+}
+add_shortcode( 'featuredproperties', 'featuredproperties_func' );
+
 //agentimage Buyer
 function buyer_func( $atts, $content = null ){
 

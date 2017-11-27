@@ -3,7 +3,7 @@
 Plugin Name: Cyclone Slider
 Plugin URI: http://www.codefleet.net/cyclone-slider/
 Description: Create and manage sliders with ease. Built for both casual users and developers.
-Version: 3.1.2
+Version: 3.2.0
 Author: Nico Amarilla
 Author URI: http://www.codefleet.net/
 License: GPLv3

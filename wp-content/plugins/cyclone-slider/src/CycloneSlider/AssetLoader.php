@@ -49,9 +49,6 @@ class CycloneSlider_AssetLoader {
 			// Required media files for new media manager. Since WP 3.5+
 			wp_enqueue_media();
 			
-			// Fontawesome style
-			wp_enqueue_style( 'font-awesome', $this->url.'libs/font-awesome/css/font-awesome.min.css', array(), $this->version );
-			
 			// Main style
 			wp_enqueue_style( 'cycloneslider-admin-styles', $this->url.'css/admin.css', array(), $this->version  );
 			

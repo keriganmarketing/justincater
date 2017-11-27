@@ -140,6 +140,9 @@ class iHomefinderDisplayRules {
 	public function isContactFormWidgetEnabled() {
 		return $this->isResponsive() && $this->isContactFormEnabled();
 	}
+	public function isLoginWidgetSmallEnabled() {
+		return $this->isResponsive() && $this->isOrganizerEnabled();
+	}
 	
 	public function isHotsheetListWidgetEnabled() {
 		return $this->isResponsive() && $this->isHotSheetEnabled();
@@ -304,6 +307,14 @@ class iHomefinderDisplayRules {
 	
 	public function isSitemapEnabled() {
 		return $this->isResponsive();
+	}
+	
+	public function isMlsDisplay() {
+		return $this->getPermission("mlsDisplay", false);
+	}
+	
+	public function isMlsAgentDirectory() {
+		return $this->getPermission("mlsAgentDirectory", false);
 	}
 	
 	private function getPermission($property, $default = null) {

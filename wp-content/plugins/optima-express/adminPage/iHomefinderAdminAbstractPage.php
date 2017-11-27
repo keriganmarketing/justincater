@@ -16,6 +16,7 @@ abstract class iHomefinderAdminAbstractPage implements iHomefinderAdminPageInter
 		if($this->isUpdated()) {
 			$this->admin->activateAuthenticationToken();
 		}
+		$this->getHeadContent();
 		?>
 		<div id="ihf-main-container" class="wrap">
 			<?php
@@ -32,6 +33,10 @@ abstract class iHomefinderAdminAbstractPage implements iHomefinderAdminPageInter
 	protected function getContent() {
 		
 	}
+	
+	protected function getHeadContent() {
+		
+	} 
 	
 	//Check if an options form has been updated.
 	//When new options are updated, the parameter "updated" is set to true

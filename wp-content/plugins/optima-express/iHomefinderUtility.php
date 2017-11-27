@@ -102,4 +102,12 @@ class iHomefinderUtility {
 		return $result;
 	}
 	
+	public function isTruthy($value) {
+		return $value === true || $value === 1 || $value === "true";
+	}
+	
+	public function isFalsy($value) {
+		return $value === false || $value === 0 || $value === "false";
+	}
+	
 }

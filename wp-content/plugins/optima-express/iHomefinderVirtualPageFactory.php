@@ -53,6 +53,14 @@ class iHomefinderVirtualPageFactory {
 	const AGENT_LIST = "idx-agent-list";
 	const AGENT_DETAIL = "idx-agent-detail";
 	const AGENT_OR_OFFICE_LISTINGS = "idx-agent-or-office-listings";
+	const MLS_PORTAL_BOARD_OFFICE_SEARCH = "idx-mls-portal-office-search";
+	const MLS_PORTAL_BOARD_OFFICE_LIST = "idx-mls-portal-office-list";
+	const MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH = "idx-mls-portal-board-list-name-starts-with";
+	const MLS_PORTAL_BOARD_OFFICE_DETAIL = "idx-mls-portal-office";
+	const MLS_PORTAL_BOARD_MEMBER_SEARCH = "idx-mls-portal-agent-search";
+	const MLS_PORTAL_BOARD_MEMBER_LIST = "idx-mls-portal-agent-list";
+	const MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH = "idx-mls-portal-agent-list-last-name-starts-with";
+	const MLS_PORTAL_BOARD_MEMBER_DETAIL = "idx-mls-portal-agent";
 	
 	/**
 	 * 
@@ -173,8 +181,75 @@ class iHomefinderVirtualPageFactory {
 			case self::AGENT_OR_OFFICE_LISTINGS:
 				$virtualPage = new iHomefinderAgentOrOfficeListingsVirtualPageImpl();
 				break;
+			case self::MLS_PORTAL_BOARD_OFFICE_SEARCH:
+				$virtualPage = new iHomefinderMlsPortalBoardOfficeSearchVirtualPageImpl();
+				break;
+			case self::MLS_PORTAL_BOARD_OFFICE_LIST:
+				$virtualPage = new iHomefinderMlsPortalBoardOfficeListVirtualPageImpl();
+				break;
+			case self::MLS_PORTAL_BOARD_OFFICE_LIST_NAME_STARTS_WITH:
+				$virtualPage = new iHomefinderMlsPortalBoardOfficeListNameStartsWithVirtualPageImpl();
+				break;
+			case self::MLS_PORTAL_BOARD_OFFICE_DETAIL:
+				$virtualPage = new iHomefinderMlsPortalBoardOfficeDetailVirtualPageImpl();
+				break;
+			case self::MLS_PORTAL_BOARD_MEMBER_SEARCH:
+				$virtualPage = new iHomefinderMlsPortalBoardMemberSearchVirtualPageImpl();
+				break;
+			case self::MLS_PORTAL_BOARD_MEMBER_LIST:
+				$virtualPage = new iHomefinderMlsPortalBoardMemberListVirtualPageImpl();
+				break;
+			case self::MLS_PORTAL_BOARD_MEMBER_LIST_LAST_NAME_STARTS_WITH:
+				$virtualPage = new iHomefinderMlsPortalBoardMemberListLastNameStartsWithVirtualPageImpl();
+				break;
+			case self::MLS_PORTAL_BOARD_MEMBER_DETAIL:
+				$virtualPage = new iHomefinderMlsPortalBoardMemberDetailVirtualPageImpl();
+				break;
 		}
 		return $virtualPage;
 	}
 	
+	/**
+	 * @param string $name
+	 * @return boolean
+	 */
+	public static function isOrganizerPage($name) {
+		$pages = array(
+			self::ORGANIZER_LOGIN,
+			self::ORGANIZER_LOGOUT,
+			self::ORGANIZER_EDIT_SAVED_SEARCH,
+			self::ORGANIZER_EDIT_SAVED_SEARCH_SUBMIT,
+			self::ORGANIZER_EMAIL_UPDATES_CONFIRMATION,
+			self::ORGANIZER_DELETE_SAVED_SEARCH,
+			self::ORGANIZER_DELETE_SAVED_SEARCH_SUBMIT,
+			self::ORGANIZER_VIEW_SAVED_SEARCH,
+			self::ORGANIZER_VIEW_SAVED_SEARCH_LIST,
+			self::ORGANIZER_VIEW_SAVED_LISTING_LIST,
+			self::ORGANIZER_DELETE_SAVED_LISTING_SUBMIT,
+			self::ORGANIZER_RESEND_CONFIRMATION_EMAIL,
+			self::ORGANIZER_ACTIVATE_SUBSCRIBER,
+			self::ORGANIZER_SEND_SUBSCRIBER_PASSWORD,
+			self::ORGANIZER_HELP,
+			self::ORGANIZER_EDIT_SUBSCRIBER,
+		);
+		return array_search($name, $pages) !== false;
+	}
+	
+	public static function isHotSheetPage($name) {
+		$pages = array(
+			self::HOT_SHEET_LIST,
+			self::HOT_SHEET_LISTING_REPORT,
+			self::HOT_SHEET_OPEN_HOME_REPORT,
+			self::HOT_SHEET_MARKET_REPORT,
+		);
+		return array_search($name, $pages) !== false;
+	}
+	
+	public static function isEmailAlertsPage($name) {
+		$pages = array (
+			self::ORGANIZER_EDIT_SAVED_SEARCH,
+			self::ORGANIZER_EMAIL_UPDATES_CONFIRMATION,
+		);
+		return array_search($name, $pages) !== false;
+	}
 }

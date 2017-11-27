@@ -68,7 +68,11 @@
 	<input type="hidden" name="cycloneslider_settings[force_resize]" value="0" />
 	<input type="checkbox" name="cycloneslider_settings[force_resize]" id="force_resize" value="1" />
 	<label for="force_resize"><?php _e('Force Resize', 'cycloneslider'); ?></label> <br>
-	<span class="note"><?php _e('Yes - resize images to slideshow dimension. <br>No - use the original uploaded image. <br>Force Resize - Regenerate all images and thumbnails.', 'cycloneslider'); ?></span>
+	<span class="note">
+		<?php _e('Yes - resize images to slideshow dimension.', 'cycloneslider'); ?><br>
+		<?php _e('No - use the original uploaded image.', 'cycloneslider'); ?><br>
+		<?php _e('Force Resize - Regenerate all images and thumbnails.', 'cycloneslider'); ?>
+	</span>
 	<div class="clear"></div>
 </div>
 <div class="cycloneslider-field">
